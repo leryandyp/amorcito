@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botones Sí y No</title>
+    <style>
+        /* Estilos para el botón "No" */
+        #botonNo {
+            position: absolute;
+            top: 53%;
+            left: 60%;
+            width: 75px;
+            height: 50px;
+        }
+
+        #botonSi {
+            position: relative;
+            top: -25%;
+            right: 25%;
+            width: 200px;
+            height: 200px;
+            background-color: transparent;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transform: rotate(-45deg);
+            z-index: 1;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 50px;
+        }
+
+        .heart-shape{
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            width: 154px;
+            height: 154px;
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+            background-color: rgb(255, 45, 45);
+            border: none;
+        }
+        .heart-shape:before,
+        .heart-shape:after{
+            position: absolute;
+            width: 154px;
+            height: 154px;
+            content: '';
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -o-border-radius: 50%;
+            border-radius: 50%;
+            background-color: rgb(255, 45, 45);
+        }
+        .heart-shape:before{
+            bottom: 0px;
+            left: -83px;
+        }
+        .heart-shape:after{
+            top: -83px;
+            right: 0px;
+        }
+    
+        .pregunta{
+            margin-top: 20vh;
+            text-align: center;
+            padding-right: 20px;
+        }
+        .pregunta b{
+            color: rgb(222, 29, 222);
+        }
+    </style>
+</head>
+<body>
+    <div class="pregunta">
+        <h2>Mi muñequita hermosa C.G.E. <b>(Amorcito)</b></h2>
+        <h1>Me amas?</h1>
+    </div>
+    <div class="heart-shape" onclick="mostrarMensajeChi()">
+     <button id="botonSi"> CHIIIII </button>
+    </div>
+    <button id="botonNo" onmouseover="moverBoton()" onclick="mostrarMensajeNo()">No</button>
+
+    <script>
+        // Función para mostrar un mensaje cuando se hace clic en el botón "Sí"
+        function mostrarMensajeChi() {
+            Swal.fire({
+            title: "Owwww. Yo también te amo amorchito 🐢🔥",
+            width: 600,
+            padding: "3em",
+            color: "#B666D2",
+            background: "#fff url(/images/trees.png)",
+            backdrop: `
+                rgba(0,0,123,0.4)
+                url("/images/nyan-cat.gif")
+                left top
+                no-repeat
+            `
+            });
+        }
+
+        function mostrarMensajeNo() {
+            alert("Nooooooooooooooooooooooooo :(");
+        }
+
+        // Función para mover aleatoriamente el botón "No" cuando el mouse está sobre él
+        function moverBoton() {
+            const botonNo = document.getElementById("botonNo");
+            const maxX = window.innerWidth - botonNo.clientWidth;
+            const maxY = window.innerHeight - botonNo.clientHeight;
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            botonNo.style.left = randomX + "px";
+            botonNo.style.top = randomY + "px";
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+<footer style="text-align: center; font-size: 15px; color: blue; margin-top: 50vh">
+    <br><br>
+    <span>by: Leryandyp</span>
+ </footer>
+</html>
